@@ -157,7 +157,7 @@ def render(state, c_choice, h_choice):
     }
     str_line = '---------------'
 
-    print('\n' + str_line)
+    print(str_line)
     for row in state:
         for cell in row:
             symbol = chars[cell]
@@ -176,7 +176,7 @@ def ai_turn(c_choice, h_choice):
     depth = len(empty_cells(board))
     if depth == 0 or game_over(board):
         return
-    print(f'Computer turn [{c_choice}]')
+    print(f'Human turn [{h_choice}]')
     render(board, c_choice, h_choice)
 
     if depth == 9:
@@ -208,12 +208,12 @@ def human_turn(c_choice, h_choice):
         4: [1, 0], 5: [1, 1], 6: [1, 2],
         7: [2, 0], 8: [2, 1], 9: [2, 2],
     }
-    print(f'Human turn [{h_choice}]')
+    print(f'Computer turn [{c_choice}]')
     render(board, c_choice, h_choice)
 
     while move < 1 or move > 9:
         try:
-            move = int(input('Use numpad (1..9): '))
+            move = int(input('\nUse numpad (1..9): '))
             coord = moves[move]
             can_move = set_move(coord[0], coord[1], HUMAN)
 
