@@ -12,10 +12,8 @@ void display();
 void chk_arg_pred();
 
 
-   void main()
-   {
+int main(){
    char ch;
-   do{
    
 
  
@@ -40,17 +38,11 @@ void chk_arg_pred();
 
             display();
             chk_arg_pred();
-            
-            
-            printf("Do you want to continue(y/n):   ");
-            scanf("%c",&ch);
-       }while(ch == 'y');
-   }
+            return 0;
+}
 
 
-
-   void display()
-   {
+void display(){
        printf("\n\t=======PREDICATES ARE======");
             for(i=0;i<no_of_pred;i++)
             {
@@ -63,10 +55,9 @@ void chk_arg_pred();
                         }
              printf(")");
             }
-   }
+}
 
-   void chk_arg_pred()
-   {
+void chk_arg_pred(){
    int pred_flag=0;
    int arg_flag=0;
 
@@ -99,8 +90,7 @@ void chk_arg_pred();
 
    }
 /*==========UNIFY FUNCTION=========*/
-   void unify()
-   {
+void unify(){
             int flag=0;
             for(i=0;i<no_of_pred-1;i++)
             {
@@ -113,10 +103,31 @@ void chk_arg_pred();
                         printf("\n\t%c/%c",argument[i+1][j],argument[i][j]);
                          flag++;
                         }
+                        printf("\n");
                 }
             }
             if(flag==0)
             {          printf("\nArguments are Identical...");
                         printf("\nNo need of Substitution\n");
             }
-   }
+}
+
+/*
+OUTPUT : 
+=========PROGRAM FOR UNIFICATION=========
+Enter Number of Predicates:- [2]
+Enter Predicate 1:-[P]
+	Enter No.of Arguments for Predicate P:-[2]
+	Enter argument 1:(a)
+	Enter argument 2:(3)
+Enter Predicate 2:-[P]
+	Enter No.of Arguments for Predicate P:-[2]
+	Enter argument 1:(x)
+	Enter argument 2:(5)
+	=======PREDICATES ARE======
+	P(a,3)
+	P(x,5)
+	======SUBSTITUTION IS======
+	x/a
+	5/3
+*/
